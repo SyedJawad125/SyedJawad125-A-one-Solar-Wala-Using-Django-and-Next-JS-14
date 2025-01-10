@@ -7,40 +7,135 @@ const NavbarCom = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-blue-700 w-full">
-      <div className="container mx-auto flex justify-between items-center p-0">
-        <div className="text-white text-1xl font-bold ml-10">
-          <Link href="/">EMPLOYEE MANAGEMENT SYSTEM</Link>
+    <nav className="bg-black shadow-lg mt-10 ml-10 mr-10">
+      <div className="container mx-auto px-8 py-2">
+        {/* Top Row: Logo and Buttons */}
+        <div className="flex justify-between items-center mb-4">
+          {/* Logo */}
+          <div className="flex items-center space-x-4">
+            <img
+              src="/path-to-your-logo/logo.png" // Replace with your logo's path
+              alt="Logo"
+              className="h-14" // Adjust logo height based on design
+            />
+            <span className="text-white text-2xl font-extrabold tracking-wide">
+              NEXT ENERGY
+            </span>
+          </div>
+{/* Navigation Links */}
+<div className="space-y-2">
+          {/* First Row */}
+          <ul className="flex flex-wrap items-center justify-center space-x-8">
+            {[
+              { name: 'GO SOLAR!', path: '/gosolar' },
+              { name: 'WHY CHOOSE US', path: '/whychooseus' },
+              { name: 'ABOUT', path: '/about' },
+              { name: 'SERVICES', path: '/services' },
+              { name: 'REVIEWS', path: '/reviews' },
+              { name: 'CONTACT US', path: '/contact' },
+
+            ].map((item) => (
+              <li key={item.path}>
+                <Link href={item.path}>
+                  <div
+                    className={`${
+                      pathname === item.path
+                        ? 'text-orange-500 border-b-2 border-orange-500'
+                        : 'text-white'
+                    } hover:text-orange-500 px-3 py-2 text-sm font-semibold uppercase transition-all duration-300`}
+                  >
+                    {item.name}
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* Second Row */}
+          <ul className="flex flex-wrap items-center justify-center space-x-8">
+            {[
+              { name: 'PORTFOLIO', path: '/portfolio' },
+              { name: 'FIND MY USAGE', path: '/findmyusage' },
+            ].map((item) => (
+              <li key={item.path}>
+                <Link href={item.path}>
+                  <div
+                    className={`${
+                      pathname === item.path
+                        ? 'text-orange-500 border-b-2 border-orange-500'
+                        : 'text-white'
+                    } hover:text-orange-500 px-3 py-2 text-sm font-semibold uppercase transition-all duration-300`}
+                  >
+                    {item.name}
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="flex space-x-10 ml-auto mr-10">
-          {[
-            { name: 'Home', path: '/' },
-            { name: 'About', path: '/about' },
-            { name: 'Services', path: '/services' },
-            // { name: 'Products', path: '/publicproducts' },
-            { name: 'Contact', path: '/contact' },
-            // { name: 'Admin', path: '/admindashboard' },
-          ].map((item) => (
-            <li key={item.path}>
-              <Link href={item.path}>
-                <div
-                  className={`${
-                    pathname === item.path ? 'text-red-500' : 'text-white'
-                  } hover:text-black px-3 py-2 text-lg`}
-                >
-                  {item.name}
-                </div>
-              </Link>
-            </li>
-          ))}
-          
-        </ul>
+          {/* Buttons */}
+          <div className="flex space-x-4">
+            <Link href="/requestquote">
+              <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-md text-sm font-semibold uppercase tracking-wide shadow-md transition-all duration-300">
+                Request A Quote
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
     </nav>
   );
 };
 
 export default NavbarCom;
+
+
+
+
+
+// 'use client';
+// import React from 'react';
+// import Link from 'next/link';
+// import { usePathname } from 'next/navigation';
+
+// const NavbarCom = () => {
+//   const pathname = usePathname();
+
+//   return (
+//     <nav className="bg-blue-700 w-full">
+//       <div className="container mx-auto flex justify-between items-center p-0">
+//         <div className="text-white text-1xl font-bold ml-10">
+//           <Link href="/">EMPLOYEE MANAGEMENT SYSTEM</Link>
+//         </div>
+//         <ul className="flex space-x-10 ml-auto mr-10">
+//           {[
+//             { name: 'Home', path: '/' },
+//             { name: 'About', path: '/about' },
+//             { name: 'Services', path: '/services' },
+//             // { name: 'Products', path: '/publicproducts' },
+//             { name: 'Contact', path: '/contact' },
+//             // { name: 'Admin', path: '/admindashboard' },
+//           ].map((item) => (
+//             <li key={item.path}>
+//               <Link href={item.path}>
+//                 <div
+//                   className={`${
+//                     pathname === item.path ? 'text-red-500' : 'text-white'
+//                   } hover:text-black px-3 py-2 text-lg`}
+//                 >
+//                   {item.name}
+//                 </div>
+//               </Link>
+//             </li>
+//           ))}
+          
+//         </ul>
+//       </div>
+//     </nav>
+//   );
+// };
+
+// export default NavbarCom;
 
 
 
